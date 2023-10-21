@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_OBJ_STATUS</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: BC Object status handler</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>OST</KEY>
+     <ENTRY>Status object to</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ACTIVATE_CHANGE_DOCS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Activate writing change documents</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Change or check an external status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHANGED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object changed</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHANGE_LANGUAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Change language for status handling (default is German)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECK_EXISTENCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check existence of object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECK_RETURN_RESULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check result after changing status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CONSTRUCTOR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONVERT_EXT_2_INT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert external status into internal</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_MY_TYPEID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>My type Id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DISPLAY_CHG_DOCS_OVERALL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Display all status changes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_ACTIVE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get active status, all, system only or user status only</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_CURRENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get current active status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create instance or get from buffer</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_SHORT_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get short text to a status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TASK_DESCR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Assemble task short text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_ACTIVE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is the passed status currently active?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_CHANGE_OF_STATUS_ALLOWED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is a change of the requested status allowed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_POSSIBLE_AS_NEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is passed status usable as next status?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_REMOVABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is passed status removable?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_COMMIT_MODES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants for commit mode</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_INT_STATUS_TYPES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants for object internal status type</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_STATUS_TYPES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants for object status type</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_LPOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Workflow object instance key</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_STATUS_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Status object information</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MT_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Instance buffer</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MT_STATUS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CHGDOCS_ACTIVE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Language key for external status values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_DEF_ATTR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Default attribute with prepared object key</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_KEY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Key attribute - Status object number</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_LANGU</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Language key for external status values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_STATUS_ORDER_NO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Status order number</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>RAISE_EVENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Instanzereignis auslösen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REMOVE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove (delete) passed status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_NEW</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set (change) status to passed value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_S_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Buffered instance</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_T_BUFFER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Instance buffer</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ACTIVATE_CHANGE_DOCS</CMPNAME>
+     <SCONAME>IV_ACTIVE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Writing change documents is active</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <SCONAME>IV_CHECK_AUTH</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Do an authority check for this operation</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <SCONAME>IV_CHECK_ONLY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Execute only a check if the operation is possible</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <SCONAME>IV_COMMIT_MODE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Type of commit (0=by caller; 1=asynch; 2=synch/wait)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <SCONAME>IV_REMOVE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Remove the status</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <SCONAME>RV_IS_POSSIBLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Operation is possible (only when checking)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHANGE_LANGUAGE</CMPNAME>
+     <SCONAME>IV_LANGU</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Language for status handling</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_EXISTENCE</CMPNAME>
+     <SCONAME>IV_KEY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Status object number</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_EXISTENCE</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_EXISTENCE</CMPNAME>
+     <SCONAME>ZCX_CA_PARAM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_RETURN_RESULT</CMPNAME>
+     <SCONAME>IV_CHECK_ONLY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Execute only a check if the operation is possible</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_RETURN_RESULT</CMPNAME>
+     <SCONAME>IV_FUNC_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Function module name for exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_RETURN_RESULT</CMPNAME>
+     <SCONAME>IV_SUBRC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Return code of function module for exception</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_RETURN_RESULT</CMPNAME>
+     <SCONAME>RV_IS_POSSIBLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Operation is possible (only when checking)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_RETURN_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_KEY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Status object number</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_PARAM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_EXT_2_INT</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_EXT_2_INT</CMPNAME>
+     <SCONAME>IV_STATUS_TYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>&apos;I&apos; = System status / &apos;E&apos; = User status</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_EXT_2_INT</CMPNAME>
+     <SCONAME>RV_INT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Internal status</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_EXT_2_INT</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ACTIVE</CMPNAME>
+     <SCONAME>IV_STATUS_TYPES</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>A=All; S=System status only; U=User status only</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ACTIVE</CMPNAME>
+     <SCONAME>RV_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Active status</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ACTIVE</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CURRENT</CMPNAME>
+     <SCONAME>IV_OBJNR</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Status object number</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CURRENT</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>IS_LPOR</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Workflow instance key</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>IV_KEY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Status object number</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>RO_INSTANCE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Created instance or found in buffer</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>ZCX_CA_PARAM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SHORT_TEXT</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SHORT_TEXT</CMPNAME>
+     <SCONAME>RV_SHORT_TEXT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Short text of the status</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TASK_DESCR</CMPNAME>
+     <SCONAME>IV_TASK_DESC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Complementing description/action/function</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TASK_DESCR</CMPNAME>
+     <SCONAME>RV_TASK_DESC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Completed task short description</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_ACTIVE</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_ACTIVE</CMPNAME>
+     <SCONAME>RV_IS_ACTIVE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Status is currently active</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_ACTIVE</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_CHANGE_OF_STATUS_ALLOWED</CMPNAME>
+     <SCONAME>IV_CHECK_ONLY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Execute only a check if the operation is possible</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_CHANGE_OF_STATUS_ALLOWED</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_CHANGE_OF_STATUS_ALLOWED</CMPNAME>
+     <SCONAME>IV_INT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Internal status</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_CHANGE_OF_STATUS_ALLOWED</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_POSSIBLE_AS_NEXT</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_POSSIBLE_AS_NEXT</CMPNAME>
+     <SCONAME>RV_IS_POSSIBLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Status can be set as next status</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_POSSIBLE_AS_NEXT</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_REMOVABLE</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_REMOVABLE</CMPNAME>
+     <SCONAME>RV_IS_REMOVABLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Status is removable</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_REMOVABLE</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>RAISE_EVENT</CMPNAME>
+     <SCONAME>IV_DO_COMMIT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Do commit here</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>RAISE_EVENT</CMPNAME>
+     <SCONAME>IV_EVENT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Event name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>RAISE_EVENT</CMPNAME>
+     <SCONAME>ZCX_CA_PARAM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REMOVE</CMPNAME>
+     <SCONAME>IV_COMMIT_MODE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Type of commit (0=by caller; 1=asynch; 2=synch/wait)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REMOVE</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REMOVE</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_NEW</CMPNAME>
+     <SCONAME>IV_COMMIT_MODE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Type of commit (0=by caller; 1=asynch; 2=synch/wait)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_NEW</CMPNAME>
+     <SCONAME>IV_EXT_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>External status (= language dependent value)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_NEW</CMPNAME>
+     <SCONAME>ZCX_CA_OBJ_STATUS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Object status handler error</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
